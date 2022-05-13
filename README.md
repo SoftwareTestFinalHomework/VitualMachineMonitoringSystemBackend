@@ -1,0 +1,2 @@
+# VitualMachineMonitoringSystemBackend
+使用Python Django搭建的虚拟机数据监控后端服务
