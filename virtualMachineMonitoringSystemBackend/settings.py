@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-tbo='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -68,10 +68,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'virtualMachineMonitoringSystemBackend.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
