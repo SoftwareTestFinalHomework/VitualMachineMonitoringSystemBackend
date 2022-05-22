@@ -21,4 +21,5 @@ urlpatterns = [
     path('checkConnection', common_view.check_connect, name='checkConnection'),
     path('addServer', common_view.add_server, name='addServer'),
     path('startGetData', common_view.start_get_data, name='startGetData'),
+    path('deleteServer', common_view.delete_server, name='deleteServer'),
 ]

@@ -18,6 +18,18 @@ def add_server(request):
     })
 
 
+def delete_server(request):
+    if request.method == 'GET':
+        for i in range(len(servers)):
+            if servers[i] == request.GET['ip']:
+                servers.pop(i)
+                break
+
+    return JsonResponse({
+        'status': 'success'
+    })
+
+
 def start_get_data(request):
     if request.method == 'GET':
         GetMachineData(request.GET['name']).start()
