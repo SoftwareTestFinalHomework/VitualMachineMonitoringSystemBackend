@@ -24,7 +24,6 @@ def get_all_running_virtual_machines_name(request):
     for vid in conn.listDomainsID():
         domain = conn.lookupByID(vid)
         all_running_virtual_machines.append(domain.name())
-        print(domain.memoryStats())
     conn.close()
     return JsonResponse({
         'allRunningVirtualMachines': all_running_virtual_machines
