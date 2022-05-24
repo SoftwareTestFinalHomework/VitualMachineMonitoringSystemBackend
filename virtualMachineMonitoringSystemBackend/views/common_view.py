@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 
 from virtualMachineMonitoringSystemBackend.config.server_config import servers
-from virtualMachineMonitoringSystemBackend.influx.get_data import GetMachineData
+from virtualMachineMonitoringSystemBackend.influx.write_data import WriteMachineData
 
 
 def check_connect(request):
@@ -32,7 +32,7 @@ def delete_server(request):
 
 def start_get_data(request):
     if request.method == 'GET':
-        GetMachineData(request.GET['name']).start()
+        WriteMachineData(request.GET['name']).start()
         return JsonResponse({
             'status': 'success'
         })

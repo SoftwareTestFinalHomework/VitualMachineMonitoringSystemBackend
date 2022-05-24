@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 import libvirt
 
+from virtualMachineMonitoringSystemBackend.influx.get_data import GetMachineData
 from virtualMachineMonitoringSystemBackend.utils.cpu_utils import get_cpu_usage
 from virtualMachineMonitoringSystemBackend.utils.disk_utils import get_disk_usage
 from virtualMachineMonitoringSystemBackend.utils.memory_utils import get_memory_usage
@@ -88,4 +89,17 @@ def get_running_virtual_machine_network_usage(request):
 
     return JsonResponse({
         'errMsg': 'error'
+    })
+
+
+def get_selected_virtual_machine_data(request):
+    result = []
+    if request.method == 'GET':
+        if request.GET['interval'] == '5s':
+            result = GetMachineData(request.GET['name']).get_data_five_minutes_ago()
+        elif request.GET['interval'] == '30m':
+            result = GetMachineData(request.GET['name']).get_data_thirty_minutes_interval()
+
+    return JsonResponse({
+        'data': result
     })
