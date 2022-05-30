@@ -1,3 +1,4 @@
+import json
 from django.http import JsonResponse
 import libvirt
 
@@ -6,6 +7,7 @@ from virtualMachineMonitoringSystemBackend.utils.cpu_utils import get_cpu_usage
 from virtualMachineMonitoringSystemBackend.utils.disk_utils import get_disk_usage
 from virtualMachineMonitoringSystemBackend.utils.memory_utils import get_memory_usage
 from virtualMachineMonitoringSystemBackend.utils.network_utils import get_network_usage
+from virtualMachineMonitoringSystemBackend.utils.virtual_machine_utils import create_virtual_machine
 
 
 def get_all_virtual_machines_name(request):
@@ -102,4 +104,19 @@ def get_selected_virtual_machine_data(request):
 
     return JsonResponse({
         'data': result
+    })
+
+
+def create_new_virtual_machine(request):
+    data = json.loads(request.body)
+    create_virtual_machine(data.get('cpuNum'), data.get('memorySize'), data.get('diskSize'), data.get('osTypeSelected'),
+                           data.get('virtualMachineName'))
+    return JsonResponse({
+        'stat': 'success'
+    })
+
+
+def delete_virtual_machine(request):
+    return JsonResponse({
+        'stat': 'success'
     })
