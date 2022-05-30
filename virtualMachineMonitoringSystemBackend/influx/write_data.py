@@ -26,7 +26,9 @@ class WriteMachineData(threading.Thread):
         # client.create_retention_policy(name='thirty_days', duration='30d', replication='1', database='machine_data',
         #                                default=True)
         select = 'SELECT mean(cpu_usage),mean(memory_usage),mean(disk_usage),mean(network_out_usage),' \
-                 'mean(network_in_usage) INTO "autogen".ubuntu_01_usage_30m FROM ubuntu_01_usage GROUP BY time(30m) '
+                 'mean(network_in_usage) INTO "autogen".' + self.name + '_usage_30m FROM ' + self.name + '_usage ' \
+                                                                                                         'GROUP BY ' \
+                                                                                                         'time(30m) '
         self.client.create_continuous_query(self.name + '_30m', select, 'machine_data')
 
     def run(self) -> None:
