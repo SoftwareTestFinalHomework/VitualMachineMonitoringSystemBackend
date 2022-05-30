@@ -51,3 +51,5 @@ class WriteMachineData(threading.Thread):
         self.client.close()
 
 
+if __name__ == '__main__':
+    WriteMachineData('ubuntu_01').start()
