@@ -7,7 +7,8 @@ from virtualMachineMonitoringSystemBackend.utils.cpu_utils import get_cpu_usage
 from virtualMachineMonitoringSystemBackend.utils.disk_utils import get_disk_usage
 from virtualMachineMonitoringSystemBackend.utils.memory_utils import get_memory_usage
 from virtualMachineMonitoringSystemBackend.utils.network_utils import get_network_usage
-from virtualMachineMonitoringSystemBackend.utils.virtual_machine_utils import create_virtual_machine
+from virtualMachineMonitoringSystemBackend.utils.virtual_machine_utils import create_virtual_machine, \
+    delete_virtual_machine
 
 
 def get_all_virtual_machines_name(request):
@@ -116,7 +117,9 @@ def create_new_virtual_machine(request):
     })
 
 
-def delete_virtual_machine(request):
+def delete_virtual_machine_by_name(request):
+    data = json.loads(request.body)
+    delete_virtual_machine(data.get('virtualMachineName'))
     return JsonResponse({
         'stat': 'success'
     })
