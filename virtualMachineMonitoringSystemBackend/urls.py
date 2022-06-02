@@ -25,5 +25,5 @@ urlpatterns = [
     path('getSelectedVirtualMachineData', virtual_machine_views.get_selected_virtual_machine_data,
          name='getSelectedVirtualMachineData'),
     path('createNewVirtualMachine', virtual_machine_views.create_new_virtual_machine, name='createNewVirtualMachine'),
-    path('deleteVirtualMachine', virtual_machine_views.delete_virtual_machine, name='deleteVirtualMachine'),
+    path('deleteVirtualMachine', virtual_machine_views.delete_virtual_machine_by_name, name='deleteVirtualMachine'),
 ]
