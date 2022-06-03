@@ -15,7 +15,7 @@
 ###### 服务器环境依赖安装(Ubuntu)
 
 ```shell
-sudo apt-get install libvirt 
+sudo apt-get install libvirt-dev libvirt-daemon libvirt-clients 
 sudo apt-get install qemu
 sudo apt-get install virt-manager
 systemctl start libvirtd
@@ -39,12 +39,6 @@ pip install -r requirements.txt
 python manage.py runserver 0.0.0.0:8000
 ```
 
-> 安装libvirt-python时虚拟环境报错解决方法
-
-```shell
-sudo pip install libvirt-python # 在全局环境中安装libvirt-python
-virtualenv venv --system-site-packages # 使虚拟环境可以使用全局环境中的packages
-```
 ###### 将Ubuntu22.04, 20.04,18.04的ISO文件放在Django的目录下(否则无法创建虚拟机)
 
 
