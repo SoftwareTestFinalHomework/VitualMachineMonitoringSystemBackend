@@ -18,9 +18,24 @@
 sudo apt-get install libvirt-dev libvirt-daemon libvirt-clients 
 sudo apt-get install qemu
 sudo apt-get install virt-manager
-systemctl start libvirtd
-systemctl enable libvirtd
+sudo systemctl start libvirtd
+sudo systemctl enable libvirtd
+sudo apt-get install influxdb influxdb-client
+sudo systemctl enable influxdb
+sudo apt-get install git openssh-server
+sudo systemctl stop ufw
+sudo systemctl disable ufw
 ```
+
+###### influxdb配置
+
+```sql
+CREATE DATABASE machine_data
+USE machine_data
+CREATE RETENTION POLICY "thirty_days" ON "machine_data" DURATION 30d REPLICATION 1 DEFAULT
+```
+
+
 
 ###### 启动Django项目(安装libvirt-python时虚拟环境可能会报错，如遇到此问题看之后的解决方案)
 
@@ -29,6 +44,7 @@ git clone git@github.com:SoftwareTestFinalHomework/VitualMachineMonitoringSystem
 cd VitualMachineMonitoringSystemBackend
 
 # 创建Python虚拟环境
+sudo apt-get install python3-pip
 sudo pip install virtualenv
 virtualenv venv
 # 激活虚拟环境
