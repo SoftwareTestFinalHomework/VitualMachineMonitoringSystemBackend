@@ -45,7 +45,7 @@ python manage.py runserver 0.0.0.0:8000
 sudo pip install libvirt-python # 在全局环境中安装libvirt-python
 virtualenv venv --system-site-packages # 使虚拟环境可以使用全局环境中的packages
 ```
-
+###### 将Ubuntu22.04, 20.04,18.04的ISO文件放在Django的目录下(否则无法创建虚拟机)
 
 
 ##### 网络请求接口
