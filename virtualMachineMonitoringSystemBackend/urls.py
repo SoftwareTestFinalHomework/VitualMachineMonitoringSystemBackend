@@ -1,11 +1,7 @@
 from django.urls import path
-from virtualMachineMonitoringSystemBackend.views import virtual_machine_views, server_views, common_view
+from virtualMachineMonitoringSystemBackend.views import virtual_machine_views, common_view
 
 urlpatterns = [
-    path('getServerCpuUsage', server_views.get_server_cpu_usage, name='getServerCpuUsage'),
-    path('getServerMemoryUsage', server_views.get_server_memory_usage, name='getServerMemoryUsage'),
-    path('getServerDiskUsage', server_views.get_server_disk_usage, name='getServerDiskUsage'),
-    path('getServerNetworkUsage', server_views.get_server_network_usage, name='getServerNetworkUsage'),
     path('getAllVirtualMachinesName', virtual_machine_views.get_all_virtual_machines_name,
          name='getAllVirtualMachinesName'),
     path('getAllRunningVirtualMachinesName', virtual_machine_views.get_all_running_virtual_machines_name,
