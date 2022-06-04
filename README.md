@@ -56,7 +56,12 @@ python manage.py runserver 0.0.0.0:8000
 ```
 
 ###### 将Ubuntu22.04, 20.04,18.04的ISO文件放在Django的目录下(否则无法创建虚拟机)
-
+Ubuntu22.04, 20.04,18.04的ISO文件已经使用Nginx放在了具有公网IP的服务器上，使用wget即可下载
+```shell
+wget http://82.157.103.85:18907/ubuntu-18.04.6-desktop-amd64.iso
+wget http://82.157.103.85:18907/ubuntu-20.04.4-desktop-amd64.iso
+wget http://82.157.103.85:18907/ubuntu-22.04-desktop-amd64.iso
+```
 
 ##### 网络请求接口
 
