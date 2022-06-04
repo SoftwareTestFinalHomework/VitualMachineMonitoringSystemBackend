@@ -37,7 +37,7 @@ CREATE RETENTION POLICY "thirty_days" ON "machine_data" DURATION 30d REPLICATION
 
 
 
-###### 启动Django项目(安装libvirt-python时虚拟环境可能会报错，如遇到此问题看之后的解决方案)
+###### 启动Django项目
 
 ```shell
 git clone git@github.com:SoftwareTestFinalHomework/VitualMachineMonitoringSystemBackend.git
