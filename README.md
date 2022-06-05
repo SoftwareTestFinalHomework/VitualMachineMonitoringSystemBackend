@@ -35,7 +35,11 @@ USE machine_data
 CREATE RETENTION POLICY "thirty_days" ON "machine_data" DURATION 30d REPLICATION 1 DEFAULT
 ```
 
-
+###### kickstart配置文件设置(该文件用于创建好虚拟机之后自动设置时区、磁盘分区、用户密码、安装依赖、网卡设置等等配置)
+```shell
+# 将ks.cfg文件拷贝到/home/lhy/ks.cfg，当前用户必须为lhy，密码为123
+cp ks.cfg /home/lhy/ks.cfg
+```
 
 ###### 启动Django项目
 

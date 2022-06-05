@@ -8,7 +8,7 @@ from virtualMachineMonitoringSystemBackend.utils.disk_utils import get_disk_usag
 from virtualMachineMonitoringSystemBackend.utils.memory_utils import get_memory_usage
 from virtualMachineMonitoringSystemBackend.utils.network_utils import get_network_usage
 from virtualMachineMonitoringSystemBackend.utils.virtual_machine_utils import create_virtual_machine, \
-    delete_virtual_machine
+    delete_virtual_machine, create_virtual_machine_by_kscfg
 
 
 def get_all_virtual_machines_name(request):
@@ -112,6 +112,15 @@ def create_new_virtual_machine(request):
     data = json.loads(request.body)
     create_virtual_machine(data.get('cpuNum'), data.get('memorySize'), data.get('diskSize'), data.get('osTypeSelected'),
                            data.get('virtualMachineName'))
+    return JsonResponse({
+        'stat': 'success'
+    })
+
+
+def create_new_virtual_machine_by_kscfg(request):
+    data = json.loads(request.body)
+    create_virtual_machine_by_kscfg(data.get('cpuNum'), data.get('memorySize'), data.get('diskSize'),
+                                    data.get('osTypeSelected'), data.get('virtualMachineName'))
     return JsonResponse({
         'stat': 'success'
     })
